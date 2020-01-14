@@ -37,19 +37,34 @@ $submitButton.on('click', (event) => {
 //   }
 // });
 
-let fileInput = document.getElementById('filePicker')
-fileInput.addEventListener('change', (event) => {
-  var xhttp = new XMLHttpRequest();
-
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("textOutput").value = xhttp.responseText;
+const fileReader = new FileReader();
+let $fileInput = $('#filePicker');
+$fileInput.on('change', (event) => {
+  fileReader.onload = (text) => {$.ajax({
+    method: 'POST',
+    url: url + '/filePicker',
+    contentType: 'application/json',
+    data: text.target.result,
+    success: (data) => {
+      $('#textOutput').val(data)
     }
-  };
-
-  xhttp.open("POST", "http://localhost:3000/filePicker", true);
-  xhttp.setRequestHeader('Content-type', 'application/json');
-  console.log(fileInput.files[0])
-  xhttp.send(fileInput.files[0]);
+  })}
+  fileReader.readAsText($fileInput[0].files[0]);
 })
+
+// let fileInput = document.getElementById('filePicker')
+// fileInput.addEventListener('change', (event) => {
+//   var xhttp = new XMLHttpRequest();
+
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("textOutput").value = xhttp.responseText;
+//     }
+//   };
+
+//   xhttp.open("POST", "http://localhost:3000/filePicker", true);
+//   xhttp.setRequestHeader('Content-type', 'application/json');
+//   console.log(fileInput.files[0])
+//   xhttp.send(fileInput.files[0]);
+// })
 
