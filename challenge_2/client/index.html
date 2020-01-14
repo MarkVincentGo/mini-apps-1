@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
   </head>
   <body>
-    <h3>Hi...</h3>
-    <h5>Put your shtuff down here...</h5>
-    <textarea id="textInput" placeholder="Enter JSON string here..." rows="20" cols="100"></textarea>
-    <br/>
-    <input id="submit" type="submit">
+    <div class="inputs">
+      <h3>JSON TO CSV</h3>
+      <h5>Put your shtuff down here...</h5>
+      <textarea id="textInput" placeholder="Enter JSON string here..." rows="20" cols="100"></textarea>
+      <h5>...or select from computer (JSON files only)</h5>
+      <input id="filePicker" type="file">
+      <br/>
+      <input id="submit" type="submit">
+      <br/>
+    </div>
+    <h5>The CSV Version is down here!</h5>
+    <textarea id="textOutput" placeholder="Converted CSV Report..." rows="20" cols="100"></textarea>
+
+
     <script type="text/javascript" src="./app.js"></script>
   </body>
 </html>
