@@ -9,6 +9,7 @@
   "dependencies": {
     "jquery": "3.4.1"
   },
+  "permissions": ["downloads"],
   "keywords": [],
   "author": "",
   "license": "ISC"

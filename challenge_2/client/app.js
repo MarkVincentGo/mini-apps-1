@@ -13,9 +13,35 @@ $submitButton.on('click', (event) => {
         $('#textOutput').val(data)
       }
     })
+  })
+
+const fileReader = new FileReader();
+let $fileInput = $('#filePicker');
+$fileInput.on('change', (event) => {
+  fileReader.onload = (text) => {$.ajax({
+    method: 'POST',
+    url: url + '/filePicker',
+    contentType: 'application/json',
+    data: text.target.result,
+    success: (data) => {
+      $('#textOutput').val(data)
+    }
+  })}
+  fileReader.readAsText($fileInput[0].files[0]);
 })
 
-// used native browser
+let $downloads = $('#download')
+$downloads.on('click', (event) => {
+  let $textOutput = $('#textOutput')
+  console.log($textOutput.val())
+  chrome.downloads.download({
+    body: $textOutput.val(),
+    saveAs: true
+  })
+})
+
+
+  // used native browser
 //select textarea box
 // let textInput = document.getElementById('textInput');
 // //select submit button
@@ -37,20 +63,6 @@ $submitButton.on('click', (event) => {
 //   }
 // });
 
-const fileReader = new FileReader();
-let $fileInput = $('#filePicker');
-$fileInput.on('change', (event) => {
-  fileReader.onload = (text) => {$.ajax({
-    method: 'POST',
-    url: url + '/filePicker',
-    contentType: 'application/json',
-    data: text.target.result,
-    success: (data) => {
-      $('#textOutput').val(data)
-    }
-  })}
-  fileReader.readAsText($fileInput[0].files[0]);
-})
 
 // let fileInput = document.getElementById('filePicker')
 // fileInput.addEventListener('change', (event) => {

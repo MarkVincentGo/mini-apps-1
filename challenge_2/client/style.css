@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+  font-family: Helvetica;
+}
+
+.title {
+  border-bottom: 3px solid darkgrey;
+  width: 80%;
+  margin: 0 auto;
+}
+
+textarea {
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+
