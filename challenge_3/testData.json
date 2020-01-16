@@ -1,0 +1,15 @@
+{
+  "name": "Mark",
+  "email": "markvfgo",
+  "password": "Mark",
+  "address_line_1": "Mark',"
+  "address_line_2": "Mark",
+  "city": "Mark",
+  "state": "CA",
+  "zip_code": "91243",
+  "phone_number": "92502352",
+  "credit_card_number": "2360924029476502",
+  "expiration_date": "5/23",
+  "CVV": "123",
+  "billing_zip_code": "23566'"
+}
